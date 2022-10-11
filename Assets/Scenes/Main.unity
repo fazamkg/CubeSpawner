@@ -1457,6 +1457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2124941891}
   - component: {fileID: 2124941890}
+  - component: {fileID: 2124941892}
   m_Layer: 0
   m_Name: CubeSpawner
   m_TagString: Untagged
@@ -1477,6 +1478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _origin: {fileID: 0}
+  _timer: {fileID: 0}
   <SpawnInterval>k__BackingField: 0
   <Speed>k__BackingField: 0
   <Distance>k__BackingField: 0
@@ -1495,3 +1497,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124941892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124941889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f55b6baf63ab1f488c5668bd7cce444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isRepeating: 1
+  <Interval>k__BackingField: 0

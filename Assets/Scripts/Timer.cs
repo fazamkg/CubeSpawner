@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Timer : MonoBehaviour
 	private float _timer;
 
 	[field: SerializeField] public float Interval { get; set; }
+
+	public event Action OnTimerEnd;
 
 	private void Update()
 	{
@@ -19,6 +22,7 @@ public class Timer : MonoBehaviour
 		if (_isRepeating)
 		{
 			_timer = 0.0f;
+			OnTimerEnd?.Invoke();
 		}
 		else
 		{
