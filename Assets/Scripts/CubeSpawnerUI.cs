@@ -16,6 +16,11 @@ public class CubeSpawnerUI : MonoBehaviour
 		_distanceField.onEndEdit.AddListener(UpdateDistance);
 	}
 
+	private void Start()
+	{
+		_spawnIntervalField.text = _cubeSpawner.SpawnInterval.ToString();
+	}
+
 	private void UpdateSpawnInterval(string value)
 	{
 		var parsed = float.TryParse(value, out float result);

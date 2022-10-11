@@ -6,6 +6,8 @@ public class CubeSpawner : MonoBehaviour
 	[SerializeField] private Transform _origin;
 	[SerializeField] private Timer _timer;
 
+	private ObjectPool<GameObject> _pool;
+
 	public float SpawnInterval
 	{
 		get => _timer.Interval;
@@ -19,11 +21,13 @@ public class CubeSpawner : MonoBehaviour
 
 	private void Awake()
 	{
+		if (_timer == null) _timer = GetComponent<Timer>();
+
 		_timer.OnTimerEnd += Spawn;
 	}
 
 	private void Spawn()
 	{
-
+		print("spawning");
 	}
 }
