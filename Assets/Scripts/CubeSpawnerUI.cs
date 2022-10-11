@@ -25,7 +25,7 @@ public class CubeSpawnerUI : MonoBehaviour
 
 	private float ForceParse(string value)
 	{
-		value = value.Replace(',', '.');
+		value = value.Replace('.', ',');
 		var parsed = float.TryParse(value, out float result);
 		if (parsed) return result;
 		return 0.0f;
