@@ -8,7 +8,7 @@ public class MovingObject : MonoBehaviour
 	[field: SerializeField] public float Speed { get; set; }
 	[field: SerializeField] public float DeathDistance { get; set; }
 
-	public event Action OnDeathDistanceReached;
+	public event Action<MovingObject> OnDeathDistanceReached;
 
 	private void Update()
 	{
@@ -18,8 +18,13 @@ public class MovingObject : MonoBehaviour
 		_currentDistance += distance;
 		if (_currentDistance >= DeathDistance)
 		{
-			OnDeathDistanceReached?.Invoke();
+			OnDeathDistanceReached?.Invoke(this);
 			gameObject.SetActive(false);
 		}
+	}
+
+	public void Reset()
+	{
+		_currentDistance = 0.0f;
 	}
 }

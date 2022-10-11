@@ -3,10 +3,12 @@ using UnityEngine.Pool;
 
 public class CubeSpawner : MonoBehaviour
 {
+	[SerializeField] private MovingObject _cubePrefab;
+
 	[SerializeField] private Transform _origin;
 	[SerializeField] private Timer _timer;
 
-	private ObjectPool<GameObject> _pool;
+	private ObjectPool<MovingObject> _pool;
 
 	public float SpawnInterval
 	{
@@ -22,12 +24,30 @@ public class CubeSpawner : MonoBehaviour
 	private void Awake()
 	{
 		if (_timer == null) _timer = GetComponent<Timer>();
+		if (_origin == null) _origin = transform;
 
-		_timer.OnTimerEnd += Spawn;
+		_pool = new ObjectPool<MovingObject>(Spawn, OnGet);
+
+		_timer.OnTimerEnd += Get;
 	}
 
-	private void Spawn()
+	private void Get() => _pool.Get();
+
+	private MovingObject Spawn()
 	{
-		print("spawning");
+		var cube = Instantiate(_cubePrefab, _origin.position, Quaternion.identity, _origin);
+
+		cube.Speed = Speed;
+		cube.DeathDistance = Distance;
+		cube.OnDeathDistanceReached += _pool.Release;
+
+		return cube;
+	}
+
+	private void OnGet(MovingObject cube)
+	{
+		cube.gameObject.SetActive(true);
+		cube.transform.position = _origin.position;
+		cube.Reset();
 	}
 }
