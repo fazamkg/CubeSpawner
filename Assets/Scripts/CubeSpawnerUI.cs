@@ -23,20 +23,25 @@ public class CubeSpawnerUI : MonoBehaviour
 		_distanceField.text = _cubeSpawner.Distance.ToString();
 	}
 
+	private float ForceParse(string value)
+	{
+		value = value.Replace(',', '.');
+		var parsed = float.TryParse(value, out float result);
+		if (parsed) return result;
+		return 0.0f;
+	}
+
 	private void UpdateSpawnInterval(string value)
 	{
-		var parsed = float.TryParse(value, out float result);
-		if (parsed) _cubeSpawner.SpawnInterval = result;
+		_cubeSpawner.SpawnInterval = ForceParse(value);
 	}
 
 	private void UpdateSpeed(string value)
 	{
-		var parsed = float.TryParse(value, out float result);
-		if (parsed) _cubeSpawner.Speed = result;
+		_cubeSpawner.Speed = ForceParse(value);
 	}
 	private void UpdateDistance(string value)
 	{
-		var parsed = float.TryParse(value, out float result);
-		if (parsed) _cubeSpawner.Distance = result;
+		_cubeSpawner.Distance = ForceParse(value);
 	}
 }
