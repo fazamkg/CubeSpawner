@@ -19,6 +19,8 @@ public class CubeSpawnerUI : MonoBehaviour
 	private void Start()
 	{
 		_spawnIntervalField.text = _cubeSpawner.SpawnInterval.ToString();
+		_speedField.text = _cubeSpawner.Speed.ToString();
+		_distanceField.text = _cubeSpawner.Distance.ToString();
 	}
 
 	private void UpdateSpawnInterval(string value)
