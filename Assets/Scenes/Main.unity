@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
 --- !u!222 &499079395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: "\u0418\u043D\u0442\u0435\u0440\u0432\u0430\u043B \u0441\u043F\u0430\u0432\u043D\u0430"
 --- !u!222 &927552202
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: "\u0420\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u0435"
 --- !u!222 &2096967127
 CanvasRenderer:
   m_ObjectHideFlags: 0
