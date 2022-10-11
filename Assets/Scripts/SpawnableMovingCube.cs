@@ -10,10 +10,10 @@ public class SpawnableMovingCube : MonoBehaviour
 
 	private void Update()
 	{
-		var distance = _cubeSpawner.Speed * Time.deltaTime;
-		transform.position += distance * Vector3.forward;
+		var translation = _cubeSpawner.Speed * Time.deltaTime;
+		transform.position += translation * Vector3.forward;
 
-		_currentDistance += distance;
+		_currentDistance += Mathf.Abs(translation);
 		if (_currentDistance >= _cubeSpawner.Distance)
 		{
 			OnDeathDistanceReached?.Invoke(this);
